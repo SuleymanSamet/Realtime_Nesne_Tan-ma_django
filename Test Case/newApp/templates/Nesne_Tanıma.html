@@ -1,0 +1,36 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+
+    <div id="image-container">
+        <img src="{% static 'path_to_your_image.jpg' %}" id="image" alt="Image">
+    </div>
+
+<div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cevabı Gönder</button>
+</form>
+</div>
+
+
+
+<!-- JavaScript kodunu ekliyoruz -->
+<script>
+    // Görüntüyü işleme işlevi
+    function processImage() {
+        // Görüntü işleme işlemleri burada yapılır
+        // İşlenmiş görüntüyü sonuçlar <div> içinde gösterme
+        var resultContainer = document.getElementById("result-container");
+        resultContainer.innerHTML = "İşlenmiş sonuçlar burada gösterilecek."; // Sonuçları buraya ekleyin
+    }
+
+    // Sayfa yüklendiğinde görüntü işleme işlevini çağırma
+    window.onload = function() {
+        processImage();
+    };
+</script>
+{% endblock %}
